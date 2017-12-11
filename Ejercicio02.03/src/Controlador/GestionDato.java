@@ -74,7 +74,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Pelucla/DatosPelicula.txt",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Pelicula/DatosPelicula.txt",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(pel.getNombrePelicula());
                escritura.writeUTF(pel.getGenero());
