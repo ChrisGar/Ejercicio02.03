@@ -6,12 +6,13 @@
 package Controlador;
 
 import Vista.VentanaCargo;
+import Vista.VentanaPelicula;
+import Vista.VentanaPersona;
 
 import Vista.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.VentanaPelicula;
-import vista.VentanaPersona;
+
 
 
 /**
