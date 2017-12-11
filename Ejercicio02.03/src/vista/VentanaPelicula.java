@@ -3,7 +3,7 @@ package vista;
 
 import Modelo.Pelicula;
 import Controlador.GestionDato;
-/**import Controlador.EventoPelicula;*/
+import Controlador.EventoPelicula;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
