@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Controlador;
 
-import Controlador.ExcepcionDatoRepetido;
+
+import Vista.VentanaCargo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -17,24 +18,43 @@ import javax.swing.JOptionPane;
  *
  * @author USER
  */
-/*public class EventoCargo implements ActionListener 
+public class EventoCargo implements ActionListener 
 {
     private VentanaCargo ventanaCargo;
-   
-    public EventoCargo(VentanaCargo ventana) 
-    {
-        this.ventanaCargo= ventana;
+    private GestionDato gD;
+
+    public EventoCargo(VentanaCargo ventanaCargo) {
+        this.ventanaCargo = ventanaCargo;
+    }
+
+    public VentanaCargo getVentanaCargo() {
+        return ventanaCargo;
+    }
+
+    public void setVentanaCargo(VentanaCargo ventanaCargo) {
+        this.ventanaCargo = ventanaCargo;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
     }
     
+   
     
     public void actionPerformed(ActionEvent e) 
+    
     {
+      /* 
        try
        {
            if (e.getSource().equals(this.ventanaCargo.getBoton()))
            {
            
-                int pago=this.ventanaCargo.getTxtList().get(0).getText();
+                int pago= Integer.parseInt(this.ventanaCargo.getTxtList().get(0).getText());
                 pago=pago;
                 String persona=this.ventanaCargo.getCombo1().getSelectedItem().toString();
                 persona=persona;
@@ -81,8 +101,10 @@ import javax.swing.JOptionPane;
         {
             JOptionPane.showMessageDialog(this.ventanaCargo, "Cargo repetido");
         }
+        */
     }
-}*/
+}
+
        
        
            

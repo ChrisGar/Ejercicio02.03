@@ -11,9 +11,9 @@ package Modelo;
  */
 public class Cargo 
 {
-    Persona persona;
-    Pelicula pelicula;
-    double pago;
+    private Persona persona;
+    private Pelicula pelicula;
+    private double pago;
 
     public Cargo(Persona persona, Pelicula pelicula, double pago) {
         this.persona = persona;
@@ -44,7 +44,8 @@ public class Cargo
     public void setPago(double pago) {
         this.pago = pago;
     }
-    
+
+   
     
     
     
