@@ -57,9 +57,9 @@ public class VentanaCargo extends JInternalFrame{
     public void iniciaComponente(){
         
         this.etiList = new ArrayList<JLabel>();
+        this.etiList.add(new JLabel("Pago"));
         this.etiList.add(new JLabel("Nombre Persona"));
         this.etiList.add(new JLabel("Nombre Pelicula"));
-        this.etiList.add(new JLabel("Pago"));
         
         this.txtList = new ArrayList<JTextField>();
         this.txtList.add(new JTextField(10));
@@ -71,9 +71,9 @@ public class VentanaCargo extends JInternalFrame{
         this.boton2.addActionListener(new EventoCargo(this));
         
         this.encabezado = new Object[3];
-        this.encabezado[0]="Persona";
-        this.encabezado[1]="Pelicula";
-        this.encabezado[2]="Pago";
+        this.encabezado[0]="Pago";
+        this.encabezado[1]="Persona";
+        this.encabezado[2]="Pelicula";
        
         this.datos = cargaDatosTabla(this.gestionDato.getCargoList().size(),3);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
@@ -87,18 +87,18 @@ public class VentanaCargo extends JInternalFrame{
 	this.panelInicial = new JPanel(disenio2);
         
         this.panelGuardar.add(this.etiList.get(0));
-        this.panelGuardar.add(this.etiList.get(1));
-        this.panelGuardar.add(this.etiList.get(2));
-        this.panelGuardar.add(this.txtList.get(2));
+        this.panelGuardar.add(this.txtList.get(0));
         
+        this.panelGuardar.add(this.etiList.get(2));
         this.combo1=new JComboBox();
         this.cargarCombo1();
         this.panelGuardar.add(this.combo1);
         
+        this.panelGuardar.add(this.etiList.get(1));
         this.combo2=new JComboBox();
         this.cargarCombo2();
         this.panelGuardar.add(this.combo2);
-	
+       
 	this.panelVer.add(this.scroll, BorderLayout.CENTER);
 	this.panelGuardar.add(this.boton);
         this.panelGuardar.add(this.boton2);
