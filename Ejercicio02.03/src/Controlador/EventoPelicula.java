@@ -5,9 +5,10 @@
  */
 package Controlador;
 
-import Vista.VentanaPelicula;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.VentanaPelicula;
 
 
 /**
