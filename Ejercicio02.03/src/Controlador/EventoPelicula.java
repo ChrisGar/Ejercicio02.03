@@ -10,8 +10,12 @@ import Modelo.Pelicula;
 import Vista.VentanaPelicula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 
@@ -51,6 +55,24 @@ public class EventoPelicula implements ActionListener{
                genero=genero;
                int horas=Integer.parseInt(this.ventanaPelicula.getTxtList().get(2).getText());
                horas=horas;
+               
+               /*
+               //metodo chooser
+               JFileChooser guardar = new JFileChooser();
+               guardar.setApproveButtonText("Guardar");
+               guardar.showOpenDialog(null);
+               File archivo = new File (guardar.getSelectedFile().getAbsolutePath());
+        
+               int aux =0;
+               BufferedWriter salida = new BufferedWriter(new FileWriter (archivo ,true));
+               salida.write("Nombre " + aux);
+               aux++;
+               salida.newLine();
+               salida.close();
+               // termina el metodo chooser
+             
+               */
+
                Pelicula p=new Pelicula(nombre, genero,horas);
                JOptionPane.showMessageDialog(this.ventanaPelicula,"Guardado");
                ventanaPelicula.getGestionDato().getPeliculaList().add(p);
