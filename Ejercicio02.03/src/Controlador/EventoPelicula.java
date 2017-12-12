@@ -55,6 +55,7 @@ public class EventoPelicula implements ActionListener{
                genero=genero;
                int horas=Integer.parseInt(this.ventanaPelicula.getTxtList().get(2).getText());
                horas=horas;
+             
                
                /*
                //metodo chooser
