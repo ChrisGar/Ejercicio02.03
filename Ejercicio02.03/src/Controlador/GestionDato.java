@@ -192,7 +192,65 @@ public class GestionDato {
         return cargo;
     }
     
+    public boolean persistPersonaList(List<Persona> personaList) throws Exception
+    {
+        boolean retorno=true;
+        File directorio=new File("C:/Persona");
+        System.out.print((directorio.getPath()));
+        if(!directorio.exists())
+        {
+            directorio.mkdir();
+        }
+        for(Persona pe:personaList)
+        {
+            try
+            {
+               FileOutputStream ae=new   FileOutputStream("C:/Persona/DatosPersona.txt",true);
+               DataOutputStream escritura= new DataOutputStream (ae);
+               escritura.writeUTF(pe.getNombrePersona());
+               escritura.writeUTF(pe.getCi());
+               escritura.writeInt(pe.getEdad());
+               escritura.close();
+               retorno=true;
+            }catch(EOFException e1)
+            {
+                retorno=false;
+            }
+        }
+        
+        return retorno;
+    }
     
+    public List<Persona> leePersona() throws Exception
+    {
+        List<Persona> pL = new ArrayList<Persona>();
+        try
+        {
+            FileInputStream ae=new   FileInputStream("C:/Persona/DatosPersona.txt");
+            DataInputStream lectura= new DataInputStream (ae);
+            
+            while(true)
+            {
+                String nombrePe=lectura.readUTF();
+                String cedu=lectura.readUTF();
+                int edad=lectura.readInt();
+               
+                
+                Persona pe=new Persona(nombrePe,cedu,edad);
+                pL.add(pe);
+                
+                
+           
+            }
+           
+        }catch(EOFException e1)
+        {
+            
+        }
+        
+           return pL;
+     
+    }
     public boolean addPersona(Persona p)
     {
         boolean retorno;

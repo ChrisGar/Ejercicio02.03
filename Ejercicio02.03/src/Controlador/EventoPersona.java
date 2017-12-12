@@ -7,9 +7,13 @@ package Controlador;
 
 
 
+import Modelo.Persona;
 import Vista.VentanaPersona;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
@@ -19,34 +23,57 @@ import java.awt.event.ActionListener;
  */
 public class EventoPersona implements ActionListener{
     
-    private VentanaPersona ventana;
-    private GestionDato gD;
+    private VentanaPersona ventanaPersona;
 
-    public EventoPersona(VentanaPersona ventana) {
-        this.ventana = ventana;
+    public EventoPersona(VentanaPersona ventanaPersona) {
+        this.ventanaPersona = ventanaPersona;
     }
 
-    public VentanaPersona getVentana() {
-        return ventana;
+    public VentanaPersona getVentanaPersona() {
+        return ventanaPersona;
     }
 
-    public void setVentana(VentanaPersona ventana) {
-        this.ventana = ventana;
+    public void setVentanaPersona(VentanaPersona ventanaPersona) {
+        this.ventanaPersona = ventanaPersona;
     }
-
-    public GestionDato getgD() {
-        return gD;
-    }
-
-    public void setgD(GestionDato gD) {
-        this.gD = gD;
-    }
+   
     
     
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            if (ae.getSource().equals(this.ventanaPersona.getBoton()))
+            {
+                String nombre=this.ventanaPersona.getTxtList().get(0).getText();
+                nombre=nombre;
+                String cedula=this.ventanaPersona.getTxtList().get(1).getText();
+                cedula=cedula;
+                int edad=Integer.parseInt(this.ventanaPersona.getTxtList().get(2).getText());
+                edad=edad;
+                Persona p=new Persona(nombre, cedula,edad);
+                JOptionPane.showMessageDialog(this.ventanaPersona,"Guardado");
+                ventanaPersona.getGestionDato().getPersonaList().add(p);
+                try {
+                    this.ventanaPersona.getGestionDato().persistPersonaList(this.ventanaPersona.getGestionDato().getPersonaList());
+                } catch (Exception ex) {
+                Logger.getLogger(EventoPelicula.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                           
+                                
+            }
+            this.ventanaPersona.getGestionDato().leePersona();
+       
+            Object[][]datosCurso=this.ventanaPersona.cargaDatosTabla(this.ventanaPersona.getGestionDato().getPersonaList().size(),3);
+            this.ventanaPersona.setDatos(datosCurso);
+            this.ventanaPersona.getModeloTabla().setDataVector(this.ventanaPersona.getDatos(), this.ventanaPersona.getEncabezado());
+       
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this.ventanaPersona, "Mal ingreso de datos");
+        } catch (Exception ex) {
+            Logger.getLogger(EventoPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
     
 }
