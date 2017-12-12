@@ -74,7 +74,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Pelicula/DatosPelicula.txt",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Pelicula/DatosPelicula.dat",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(pel.getNombrePelicula());
                escritura.writeUTF(pel.getGenero());
@@ -95,7 +95,7 @@ public class GestionDato {
         List<Pelicula> peli = new ArrayList<Pelicula>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Pelicula/DatosPelicula.txt");
+            FileInputStream ae=new   FileInputStream("C:/Pelicula/DatosPelicula.dat");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)
@@ -136,7 +136,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Cargo/DatosCargo.txt",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Cargo/DatosCargo.dat",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(c.getPersona().getNombrePersona());
                escritura.writeUTF(c.getPelicula().getNombrePelicula());
@@ -157,7 +157,7 @@ public class GestionDato {
         List<Cargo> cargo = new ArrayList<Cargo>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Cargo/DatosCargo.txt");
+            FileInputStream ae=new   FileInputStream("C:/Cargo/DatosCargo.dat");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)
@@ -206,7 +206,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Persona/DatosPersona.txt",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Persona/DatosPersona.dat",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(pe.getNombrePersona());
                escritura.writeUTF(pe.getCi());
@@ -227,7 +227,7 @@ public class GestionDato {
         List<Persona> pL = new ArrayList<Persona>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Persona/DatosPersona.txt");
+            FileInputStream ae=new   FileInputStream("C:/Persona/DatosPersona.dat");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)

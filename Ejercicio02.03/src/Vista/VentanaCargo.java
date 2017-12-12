@@ -120,9 +120,9 @@ public class VentanaCargo extends JInternalFrame{
         for(Cargo c:this.gestionDato.getCargoList())
         {
            retorno[i][0]=c.getCodigo();
-           retorno[i][1]=c.getPersona().getNombrePersona();
-           retorno[i][2]=c.getPelicula().getNombrePelicula();
-           retorno[i][3]=c.getPago();
+           retorno[i][0]=c.getPersona().getNombrePersona();
+           retorno[i][1]=c.getPelicula().getNombrePelicula();
+           retorno[i][2]=c.getPago();
            i++;
         }
         
