@@ -6,6 +6,9 @@
 package Controlador;
 
 
+import Modelo.Cargo;
+import Modelo.Pelicula;
+import Modelo.Persona;
 import Vista.VentanaCargo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,17 +51,27 @@ public class EventoCargo implements ActionListener
     public void actionPerformed(ActionEvent e) 
     
     {
-       /*
+       
        try
        {
            if (e.getSource().equals(this.ventanaCargo.getBoton()))
            {
            
-                int pago= Integer.parseInt(this.ventanaCargo.getTxtList().get(0).getText());
-                pago=pago;
+                int codigo= Integer.parseInt(this.ventanaCargo.getTxtList().get(0).getText());
+                
+                int pago= Integer.parseInt(this.ventanaCargo.getTxtList().get(1).getText());
+               
                 String persona=this.ventanaCargo.getCombo1().getSelectedItem().toString();
-                persona=persona;
+                
                 String pelicula=this.ventanaCargo.getCombo2().getSelectedItem().toString();
+                
+                for (Cargo c:this.ventanaCargo.getGestionDato().getCargoList()) 
+                {
+                    if ((codigo == c.getCodigo())&& (pelicula.equals(c.getPelicula().getNombrePelicula())) && (persona.equals(c.getPersona().getNombrePersona())))
+                    {
+                        throw new ExcepcionDatoRepetido("Cargo repetido");
+                    }
+                }
           
            
                 for(Persona p:this.ventanaCargo.getGestionDato().getPersonaList())
@@ -71,26 +84,27 @@ public class EventoCargo implements ActionListener
                         {
                             if(pelicula.equals(peli.getNombrePelicula()))
                             {
-                                Cargo c=new Cargo(p,peli,pago);
+                                Cargo c=new Cargo(codigo,p,peli,pago);
                                 JOptionPane.showMessageDialog(this.ventanaCargo,"Guardado");
                                 ventanaCargo.getGestionDato().getCargoList().add(c);
-                                this.ventanaCargo.getGestionDato().persistCursoList(this.ventanaCargo.getGestionDato().getCargoList());  
+                                try {  
+                                    this.ventanaCargo.getGestionDato().persistCargoList(this.ventanaCargo.getGestionDato().getCargoList());
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(EventoCargo.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
-                            this.ventanaCargo.getGestionDato().leeCargo;
+                            try {
+                                this.ventanaCargo.getGestionDato().leeCargo();
+                            } catch (Exception ex) {
+                               // Logger.getLogger(EventoCargo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
                 }
-                
-                for (int k = 0; k < this.ventanaCargo.getGd().getCargoList().size(); k++) {
-                    if (codigoCargo == this.ventanaCargo.getGd().getCargoList().get(k).getCargo().getCodigo()) {
-                        throw new ExcepcionDatoRepetido("Cargo repetido");
-                    }
-                }
                
-          
            }
            
-           Object[][]datosCargo=this.ventanaCargo.cargaDatosTabla(this.ventanaCargo.getGestionDato().getCargoList().size(),3);
+           Object[][]datosCargo=this.ventanaCargo.cargaDatosTabla(this.ventanaCargo.getGestionDato().getCargoList().size(),4);
            this.ventanaCargo.setDatos(datosCargo);
            this.ventanaCargo.getModeloTabla().setDataVector(this.ventanaCargo.getDatos(), this.ventanaCargo.getEncabezado());
        
@@ -101,7 +115,7 @@ public class EventoCargo implements ActionListener
         {
             JOptionPane.showMessageDialog(this.ventanaCargo, "Cargo repetido");
         }
-     */   
+     
     }
 }
 

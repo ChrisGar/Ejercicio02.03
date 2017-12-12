@@ -74,7 +74,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Pelicula/DatosPelicula.dat",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Pelicula/DatosPelicula.txt",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(pel.getNombrePelicula());
                escritura.writeUTF(pel.getGenero());
@@ -95,7 +95,7 @@ public class GestionDato {
         List<Pelicula> peli = new ArrayList<Pelicula>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Pelicula/DatosPelicula.dat");
+            FileInputStream ae=new   FileInputStream("C:/Pelicula/DatosPelicula.txt");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)
@@ -136,7 +136,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Cargo/DatosCargo.dat",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Cargo/DatosCargo.txt",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(c.getPersona().getNombrePersona());
                escritura.writeUTF(c.getPelicula().getNombrePelicula());
@@ -157,11 +157,12 @@ public class GestionDato {
         List<Cargo> cargo = new ArrayList<Cargo>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Cargo/DatosCargo.dat");
+            FileInputStream ae=new   FileInputStream("C:/Cargo/DatosCargo.txt");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)
             {
+                int codigo=lectura.readInt();
                 String nombrePer=lectura.readUTF();
                 String nombrePel=lectura.readUTF();
                 int pago=lectura.readInt();
@@ -174,7 +175,7 @@ public class GestionDato {
                         {
                             if (nombrePel.equals(pel.getNombrePelicula()))
                             {
-                                Cargo c = new Cargo(p,pel,pago);
+                                Cargo c = new Cargo(codigo,p,pel,pago);
                                 cargo.add(c);
                                   
                             }
@@ -205,7 +206,7 @@ public class GestionDato {
         {
             try
             {
-               FileOutputStream ae=new   FileOutputStream("C:/Persona/DatosPersona.dat",true);
+               FileOutputStream ae=new   FileOutputStream("C:/Persona/DatosPersona.txt",true);
                DataOutputStream escritura= new DataOutputStream (ae);
                escritura.writeUTF(pe.getNombrePersona());
                escritura.writeUTF(pe.getCi());
@@ -226,7 +227,7 @@ public class GestionDato {
         List<Persona> pL = new ArrayList<Persona>();
         try
         {
-            FileInputStream ae=new   FileInputStream("C:/Persona/DatosPersona.dat");
+            FileInputStream ae=new   FileInputStream("C:/Persona/DatosPersona.txt");
             DataInputStream lectura= new DataInputStream (ae);
             
             while(true)

@@ -11,14 +11,25 @@ package Modelo;
  */
 public class Cargo 
 {
+
+    private int codigo;
     private Persona persona;
     private Pelicula pelicula;
     private double pago;
 
-    public Cargo(Persona persona, Pelicula pelicula, double pago) {
+    public Cargo(int codigo, Persona persona, Pelicula pelicula, double pago) {
+        this.codigo = codigo;
         this.persona = persona;
         this.pelicula = pelicula;
         this.pago = pago;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Persona getPersona() {
@@ -45,8 +56,5 @@ public class Cargo
         this.pago = pago;
     }
 
-   
-    
-    
     
 }

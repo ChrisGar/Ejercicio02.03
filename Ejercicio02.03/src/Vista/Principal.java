@@ -27,6 +27,18 @@ public class Principal {
         List<Persona> pL = new ArrayList<Persona>();
         List<Pelicula> peL = new ArrayList<Pelicula>();
         List<Cargo> cL = new ArrayList<Cargo>();
+        
+        Persona p=new Persona("Pablo Argudo","010456789",19);
+        Persona p2=new Persona("Jose Moreira","010156880",35);
+        
+        Pelicula pe=new Pelicula("Los indescentes","Drama",101);
+        Pelicula pe2=new Pelicula("Batalla de Honor","Accion",102);
+       
+        pL.add(p);
+        pL.add(p2);
+        
+        peL.add(pe);
+        peL.add(pe2);
        
         
         GestionDato gD = new GestionDato(pL, peL,cL);
