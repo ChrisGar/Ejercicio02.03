@@ -57,12 +57,14 @@ public class VentanaCargo extends JInternalFrame{
     public void iniciaComponente(){
         
         this.etiList = new ArrayList<JLabel>();
-        this.etiList.add(new JLabel("Pago"));
-        this.etiList.add(new JLabel("Nombre Persona"));
-        this.etiList.add(new JLabel("Nombre Pelicula"));
+        this.etiList.add(new JLabel("Codigo"));
+        this.etiList.add(new JLabel("Pago $"));
+        this.etiList.add(new JLabel("Pelicula"));
+        this.etiList.add(new JLabel("Persona"));
         
         this.txtList = new ArrayList<JTextField>();
-        this.txtList.add(new JTextField(10));
+        this.txtList.add(new JTextField(5));
+        this.txtList.add(new JTextField(7));
         
         this.boton= new JButton("Guardar");
         this.boton2= new JButton("Limpiar");
@@ -70,12 +72,13 @@ public class VentanaCargo extends JInternalFrame{
         this.boton.addActionListener(new EventoCargo(this));
         this.boton2.addActionListener(new EventoCargo(this));
         
-        this.encabezado = new Object[3];
-        this.encabezado[0]="Pago";
-        this.encabezado[1]="Persona";
+        this.encabezado = new Object[4];
+        this.encabezado[0]="Codigo";
+        this.encabezado[1]="Pago";
         this.encabezado[2]="Pelicula";
+        this.encabezado[3]="Persona";
        
-        this.datos = cargaDatosTabla(this.gestionDato.getCargoList().size(),3);
+        this.datos = cargaDatosTabla(this.gestionDato.getCargoList().size(),4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(this.tabla);
@@ -88,13 +91,15 @@ public class VentanaCargo extends JInternalFrame{
         
         this.panelGuardar.add(this.etiList.get(0));
         this.panelGuardar.add(this.txtList.get(0));
+        this.panelGuardar.add(this.etiList.get(1));
+        this.panelGuardar.add(this.txtList.get(1));
         
-        this.panelGuardar.add(this.etiList.get(2));
+        this.panelGuardar.add(this.etiList.get(3));
         this.combo1=new JComboBox();
         this.cargarCombo1();
         this.panelGuardar.add(this.combo1);
         
-        this.panelGuardar.add(this.etiList.get(1));
+        this.panelGuardar.add(this.etiList.get(2));
         this.combo2=new JComboBox();
         this.cargarCombo2();
         this.panelGuardar.add(this.combo2);
@@ -114,9 +119,10 @@ public class VentanaCargo extends JInternalFrame{
         int i=0;
         for(Cargo c:this.gestionDato.getCargoList())
         {
-           retorno[i][0]=c.getPersona().getNombrePersona();
-           retorno[i][1]=c.getPelicula().getNombrePelicula();
-           retorno[i][2]=c.getPago();
+           retorno[i][0]=c.getCodigo();
+           retorno[i][1]=c.getPersona().getNombrePersona();
+           retorno[i][2]=c.getPelicula().getNombrePelicula();
+           retorno[i][3]=c.getPago();
            i++;
         }
         
