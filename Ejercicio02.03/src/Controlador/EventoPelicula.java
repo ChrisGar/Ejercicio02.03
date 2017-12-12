@@ -59,7 +59,7 @@ public class EventoPelicula implements ActionListener{
                } catch (Exception ex) {
                 Logger.getLogger(EventoPelicula.class.getName()).log(Level.SEVERE, null, ex);
                }
-                           
+                         
                                 
             }
         this.ventanaPelicula.getGestionDato().leePelicula();
@@ -73,7 +73,10 @@ public class EventoPelicula implements ActionListener{
        } catch (Exception ex) {
             Logger.getLogger(EventoPelicula.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
        
     }
+
+    
     
 }

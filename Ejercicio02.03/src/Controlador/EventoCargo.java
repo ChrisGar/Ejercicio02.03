@@ -48,7 +48,7 @@ public class EventoCargo implements ActionListener
     public void actionPerformed(ActionEvent e) 
     
     {
-      /* 
+       /*
        try
        {
            if (e.getSource().equals(this.ventanaCargo.getBoton()))
@@ -101,7 +101,7 @@ public class EventoCargo implements ActionListener
         {
             JOptionPane.showMessageDialog(this.ventanaCargo, "Cargo repetido");
         }
-        */
+     */   
     }
 }
 
