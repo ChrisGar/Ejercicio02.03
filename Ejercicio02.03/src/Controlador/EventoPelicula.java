@@ -43,27 +43,25 @@ public class EventoPelicula implements ActionListener{
    public void actionPerformed(ActionEvent e) 
     {
        try{
-      
-       if (e.getSource().equals(this.ventanaPelicula.getBoton()))
-       {
-           
-           String nombre=this.ventanaPelicula.getTxtList().get(0).getText();
-           nombre=nombre;
-           String genero=this.ventanaPelicula.getTxtList().get(1).getText();
-           genero=genero;
-           int horas=Integer.parseInt(this.ventanaPelicula.getTxtList().get(2).getText());
-           horas=horas;
-           Pelicula p=new Pelicula(nombre, genero,horas);
-           JOptionPane.showMessageDialog(this.ventanaPelicula,"Guardado");
-           ventanaPelicula.getGestionDato().getPeliculaList().add(p);
-           try {
-                this.ventanaPelicula.getGestionDato().persistPeliculaList(this.ventanaPelicula.getGestionDato().getPeliculaList());
-           } catch (Exception ex) {
+           if (e.getSource().equals(this.ventanaPelicula.getBoton()))
+           {
+               String nombre=this.ventanaPelicula.getTxtList().get(0).getText();
+               nombre=nombre;
+               String genero=this.ventanaPelicula.getTxtList().get(1).getText();
+               genero=genero;
+               int horas=Integer.parseInt(this.ventanaPelicula.getTxtList().get(2).getText());
+               horas=horas;
+               Pelicula p=new Pelicula(nombre, genero,horas);
+               JOptionPane.showMessageDialog(this.ventanaPelicula,"Guardado");
+               ventanaPelicula.getGestionDato().getPeliculaList().add(p);
+               try {
+                   this.ventanaPelicula.getGestionDato().persistPeliculaList(this.ventanaPelicula.getGestionDato().getPeliculaList());
+               } catch (Exception ex) {
                 Logger.getLogger(EventoPelicula.class.getName()).log(Level.SEVERE, null, ex);
-           }
+               }
                            
                                 
-        }
+            }
         this.ventanaPelicula.getGestionDato().leePelicula();
        
         Object[][]datosCurso=this.ventanaPelicula.cargaDatosTabla(this.ventanaPelicula.getGestionDato().getPeliculaList().size(),3);
