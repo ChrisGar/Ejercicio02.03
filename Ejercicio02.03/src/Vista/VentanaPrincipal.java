@@ -6,7 +6,6 @@
 package Vista;
 
 import Controlador.EventoVentanaPrincipal;
-import Controlador.GestionDato;
 import Modelo.Cargo;
 import Modelo.Pelicula;
 import Modelo.Persona;
@@ -17,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import libreria.GestionDato;
 
 /**
  *

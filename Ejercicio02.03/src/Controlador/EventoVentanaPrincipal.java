@@ -8,7 +8,7 @@ package Controlador;
 import Vista.VentanaCargo;
 import Vista.VentanaPelicula;
 import Vista.VentanaPersona;
-
+import libreria.GestionDato;
 import Vista.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +22,7 @@ import java.awt.event.ActionListener;
 public class EventoVentanaPrincipal implements ActionListener{
     
     private VentanaPrincipal ventana;
-    private GestionDato gD;
+    
 
     public EventoVentanaPrincipal(VentanaPrincipal ventana) {
         this.ventana = ventana;

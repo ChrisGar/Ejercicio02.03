@@ -6,7 +6,7 @@
 package Vista;
 
 import Modelo.Persona;
-import Controlador.GestionDato;
+import libreria.GestionDato;
 import Controlador.EventoPersona;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

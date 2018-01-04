@@ -6,10 +6,8 @@
 package Vista;
 
 import Controlador.EventoCargo;
-import Controlador.GestionDato;
-import Modelo.Cargo;
-import Modelo.Pelicula;
-import Modelo.Persona;
+import libreria.GestionDato;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;

@@ -6,7 +6,7 @@
 package Vista;
 
 import Modelo.Pelicula;
-import Controlador.GestionDato;
+import libreria.GestionDato;
 import Controlador.EventoPelicula;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
